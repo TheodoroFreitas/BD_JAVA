@@ -101,4 +101,13 @@ create table produtos (
         foreign key(codigo) references produtos(codigo)
     );
     
+    select * from carrinho;
     
+    insert into carrinho (pedido, codigo, quantidade) values (1,1,10);
+	insert into carrinho (pedido, codigo, quantidade) values (1,2,5);
+    
+    select pedidos.pedido,carrinho.codigo as Código, produtos.produto, carrinho.quantidade, produtos.valor,produtos.valor * carrinho.quantidade as Sub_Total from (carrinho inner join pedidos on carrinho.pedido = pedidos.pedido) inner join produtos on carrinho.codigo = produtos.codigo;
+    
+    select sum(produtos.valor * carrinho.quantidade) as total from carrinho inner join produtos on carrinho.codigo = produtos.codigo;
+    
+    update carrinho inner join produtos on carrinho.codigo = produtos.codigo set produtos.estoque = produtos.estoque - carrinho.quantidade where carrinho.quantidade > 0;
