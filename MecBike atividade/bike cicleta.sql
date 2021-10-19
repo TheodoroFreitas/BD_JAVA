@@ -25,57 +25,42 @@ create table clientes (
     numero varchar (12) not null,
 	bairro varchar(50) not null,
     cidade varchar(50) not null,
-    cep char(8),
+    complementos varchar(30),
+    cep char(8)not null,
+    uf char (2)not null,
     fone varchar (15)not null,
     email varchar (40)
 );
 
 drop table clientes;
-
 select * from clientes;
 
-insert into clientes (nome,endereco,numero,bairro,cidade,cep,fone,email) values('jose','rua coleta','45','jardim dinheiro','São Paulo',11111222,'1111-1111','jose@gmail.com');
-insert into clientes (nome,endereco,numero,bairro,cidade,cep,fone,email) values('maria','rua jardim','56','praça da flor','São Paulo',22222333,'2222-2222','maria@gmail.com');
-insert into clientes (nome,endereco,numero,bairro,cidade,cep,fone,email) values('marcos','rua montanha','23','jardim construção','São Paulo',44444555,'3333-3333','marcos@gmail.com');
-insert into clientes (nome,endereco,numero,bairro,cidade,cep,fone,email) values('maicon','rua cadeira','4','era uma vez','São Paulo',66666777,'4444-4444','maicon@gmail.com');
-insert into clientes (nome,endereco,numero,bairro,cidade,cep,fone,email) values('jade','rua mesa','7','tatu','São Paulo',88888999,'5555-5555','jade@gmail.com');
-insert into clientes (nome,endereco,numero,bairro,cidade,cep,fone,email) values('caue','rua pedra','66','rocha','São Paulo',10000111,'6666-6666','caue@gmail.com');
-insert into clientes (nome,endereco,numero,bairro,cidade,cep,fone,email) values('larissa','rua bolinha','11','gude','parana',12222133,'7777-7777','larissa@gmail.com');
-insert into clientes (nome,endereco,numero,bairro,cidade,cep,fone,email) values('estevao','rua tenis','32','rocha','bahia',14444155,'8888-8888','estevao@gmail.com');
-insert into clientes (nome,endereco,numero,bairro,cidade,cep,fone,email) values('josuel','rua camisa','5','tatu','São Paulo',16666177,'9999-9999','josuel@gmail.com');
-insert into clientes (nome,endereco,numero,bairro,cidade,cep,fone,email) values('rose','rua short','8','jardim roupa','São Paulo',18888199,'1000-1000','rose@gmail.com');
+insert into clientes (nome,endereco,numero,bairro,cidade,complementos,uf,cep,fone,email) values('jose','rua coleta','45','jardim dinheiro','São Paulo','Perto da rocha','SP',11111222,'1111-1111','jose@gmail.com');
+insert into clientes (nome,endereco,numero,bairro,cidade,complementos,uf,cep,fone,email) values('maria','rua jardim','56','praça da flor','São Paulo','esquina verde','SP',22222333,'2222-2222','maria@gmail.com');
+insert into clientes (nome,endereco,numero,bairro,cidade,complementos,uf,cep,fone,email) values('marcos','rua montanha','23','jardim construção','São Paulo','parede amarela','SP',44444555,'3333-3333','marcos@gmail.com');
+insert into clientes (nome,endereco,numero,bairro,cidade,complementos,uf,cep,fone,email) values('maicon','rua cadeira','4','era uma vez','São Paulo','super merdcado vera ','SP',66666777,'4444-4444','maicon@gmail.com');
+insert into clientes (nome,endereco,numero,bairro,cidade,complementos,uf,cep,fone,email) values('jade','rua mesa','7','tatu','São Paulo','Perto do poste','SP',88888999,'5555-5555','jade@gmail.com');
+insert into clientes (nome,endereco,numero,bairro,cidade,complementos,uf,cep,fone,email) values('caue','rua pedra','66','rocha','São Paulo','arvore amarela','SP',10000111,'6666-6666','caue@gmail.com');
+insert into clientes (nome,endereco,numero,bairro,cidade,complementos,uf,cep,fone,email) values('larissa','rua bolinha','11','gude','parana','casa colorida','PR',12222133,'7777-7777','larissa@gmail.com');
+insert into clientes (nome,endereco,numero,bairro,cidade,complementos,uf,cep,fone,email) values('estevao','rua tenis','32','rocha','bahia','travessa da rua cota','BA',14444155,'8888-8888','estevao@gmail.com');
+insert into clientes (nome,endereco,numero,bairro,cidade,complementos,uf,cep,fone,email) values('josuel','rua camisa','5','tatu','São Paulo','parte interior','SP',16666177,'9999-9999','josuel@gmail.com');
+insert into clientes (nome,endereco,numero,bairro,cidade,complementos,uf,cep,fone,email) values('rose','rua short','8','jardim roupa','São Paulo','moro da pedra','SP',18888199,'1000-1000','rose@gmail.com');
 
 
 
-create table estoquepecas (
-	iditen int primary key auto_increment,
-    bcode varchar (50) unique,
-    produto varchar (100) not null,
-    fabricante varchar (100) not null,
-    datacad timestamp default current_timestamp,
-    quantidade int not null,
-    estoquemin int not null,
-    valor decimal(10,2),
-    loc varchar(100)
-);
+-- create table estoquepecas (	iditen int primary key auto_increment,bcode varchar (50) unique,produto varchar (100) not null,fabricante varchar (100) not null,datacad timestamp default current_timestamp,quantidade int not null,estoquemin int not null,valor decimal(10,2),loc varchar(100));
 
+-- drop table estoquepecas;select * from estoquepecas;
 
-
-select * from estoquepecas;
-
-insert into estoquepecas (produto,fabricante,quantidade,estoquemin,valor,loc) values ('CÂMBIO','kmc',20,7,40,'Setor A-P1');
-insert into estoquepecas (produto,fabricante,quantidade,estoquemin,valor,loc) values ('ALAVANCA','absolute',10,15,40.20,'Setor A-P2');
-insert into estoquepecas (produto,fabricante,quantidade,estoquemin,valor,loc) values ('CORRENTE','mona',7,2,50.10,'Setor A-P3');
-insert into estoquepecas (produto,fabricante,quantidade,estoquemin,valor,loc) values ('PEDIVELA','kmc',30,10,60.10,'Setor A-P4');
-insert into estoquepecas (produto,fabricante,quantidade,estoquemin,valor,loc) values ('CASSETE','absolute',5,5,100,'Setor A-P5');
+-- insert into estoquepecas (produto,fabricante,quantidade,estoquemin,valor,loc) values ('CÂMBIO','kmc',20,7,40,'Setor A-P1');insert into estoquepecas (produto,fabricante,quantidade,estoquemin,valor,loc) values ('ALAVANCA','absolute',10,15,40.20,'Setor A-P2');insert into estoquepecas (produto,fabricante,quantidade,estoquemin,valor,loc) values ('CORRENTE','mona',7,2,50.10,'Setor A-P3');insert into estoquepecas (produto,fabricante,quantidade,estoquemin,valor,loc) values ('PEDIVELA','kmc',30,10,60.10,'Setor A-P4');insert into estoquepecas (produto,fabricante,quantidade,estoquemin,valor,loc) values ('CASSETE','absolute',5,5,100,'Setor A-P5');
 
 -- RELARIO 1
     
-select sum(quantidade * valor) as total from estoquepecas;
+-- select sum(quantidade * valor) as total from estoquepecas;
     
 -- RELARIO 2
     
-select * from estoquepecas where quantidade < estoquemin;
+-- select * from estoquepecas where quantidade < estoquemin;
     
 create table bikedanos (
 	bikeos int primary key auto_increment,
@@ -85,16 +70,17 @@ create table bikedanos (
 	modelobi varchar(200) not null,
 	problema varchar(200) not null,
 	mec varchar(50),
+    diagnostico varchar(100),
     retiradaos date,
-    garantia varchar(10),
+    garantia date,
 	valor decimal(10,2),
 	idcli int not null,
 	foreign key(idcli) references clientes(idcli)
 );
 
+drop table bikedanos;
 select * from bikedanos;
 
-drop table bikedanos;
 
 insert into bikedanos(tipo,statusos,modelobi,problema,mec,valor,idcli) values ('orçamento','aguardando aprovação','monark','roda enroscando','Teodoro',35.25,1);
 insert into bikedanos(tipo,statusos,modelobi,problema,mec,valor,idcli) values ('orçamento','bancada','caloi','pedal quebrado','Mike',70.10,2);
@@ -114,11 +100,18 @@ update bikedanos set retiradaos = 20211016 where idcli=4;
 update bikedanos set retiradaos = 20211015 where idcli=9;
 update bikedanos set retiradaos = 20211014 where idcli=10;
 update bikedanos set retiradaos = 20211014 where idcli=5;
-update bikedanos set garantia='1 dia' where idcli=3;
-update bikedanos set garantia='1 dia' where idcli=4;
-update bikedanos set garantia='5 dia' where idcli=9;
-update bikedanos set garantia='1 dia' where idcli=10;
-update bikedanos set garantia='2 dia' where idcli=5;
+
+update bikedanos set garantia= 20220113 where idcli=3;
+update bikedanos set garantia= 20220114 where idcli=4;
+update bikedanos set garantia= 20220113 where idcli=9;
+update bikedanos set garantia= 20220112 where idcli=10;
+update bikedanos set garantia= 20220112 where idcli=5;
+
+update bikedanos set diagnostico='solda do guidão fraca' where idcli = 3;
+update bikedanos set diagnostico='tubo com obstrução onde passa o cabo de Aço que aciona os freios  ' where idcli = 4;
+update bikedanos set diagnostico='plataforma do pedal obstruida' where idcli = 9;
+update bikedanos set diagnostico='cambio de marchas com partição de peças das engrenagens' where idcli = 10;
+update bikedanos set diagnostico='sujeira na corrente e falta de lubrificação' where idcli = 5;
 
 -- relatório 1 
 select * from bikedanos inner join clientes on bikedanos.idcli = clientes.idcli;
@@ -134,7 +127,7 @@ bikedanos.modelobi,bikedanos.problema,bikedanos.statusos as status_os,bikedanos.
 
 -- relatorio 3
 select bikedanos.bikeos,date_format(bikedanos.dataos,'%d/%m/%Y - %H:%i') as data_os,bikedanos.modelobi,bikedanos.
-problema,bikedanos.valor,retiradaos,garantia,clientes.nome as cliente from bikedanos inner join clientes on bikedanos.idcli = clientes.idcli
+problema,bikedanos.diagnostico,bikedanos.valor,retiradaos,garantia,clientes.nome as cliente from bikedanos inner join clientes on bikedanos.idcli = clientes.idcli
  where statusos = 'retirado';
 
 -- relatorio 4
